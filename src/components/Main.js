@@ -1,21 +1,11 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import {Collapse} from 'react-collapse';
 import pic01 from '../images/pic01.jpg'
 import pic02 from '../images/pic02.jpg'
 import pic03 from '../images/pic03.jpg'
+import Collapsible from './Collapsible'
 
 class Main extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      isOpened: false
-    }
-  }
-
-  handleToggleSection() {
-    this.setState({isOpened: !this.state.isOpened})
-  }
 
   render() {
     let close = (
@@ -44,10 +34,12 @@ class Main extends React.Component {
           <span className="image main">
             <img src={pic01} alt="" />
           </span>
-          <button onClick={() => this.handleToggleSection()}>SECTION</button>
-          <Collapse isOpened={this.state.isOpened}>
-            <div>Random content</div>
-          </Collapse>
+          <Collapsible title={'Section 1'}>
+            <h1>Content</h1>
+          </Collapsible>
+          <Collapsible title={'Section 2'}>
+            <h1>Content</h1>
+          </Collapsible>
           <p>
             Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin
             aliquam facilisis ante interdum congue. Integer mollis, nisl amet
