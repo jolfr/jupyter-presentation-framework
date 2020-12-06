@@ -26,7 +26,25 @@ const Header = props => (
               props.onOpenArticle('intro')
             }}
           >
-            Intro
+            Data Acquisition
+          </button>
+        </li>
+        <li>
+          <button
+            onClick={() => {
+              props.onOpenArticle('intro')
+            }}
+          >
+            Data Cleaning
+          </button>
+        </li>
+        <li>
+          <button
+            onClick={() => {
+              props.onOpenArticle('intro')
+            }}
+          >
+            Exploratory Data Analysis
           </button>
         </li>
         <li>
@@ -35,7 +53,7 @@ const Header = props => (
               props.onOpenArticle('work')
             }}
           >
-            Work
+            Feature Engineering
           </button>
         </li>
         <li>
@@ -44,7 +62,7 @@ const Header = props => (
               props.onOpenArticle('about')
             }}
           >
-            About
+            Modeling
           </button>
         </li>
         <li>
@@ -53,7 +71,7 @@ const Header = props => (
               props.onOpenArticle('contact')
             }}
           >
-            Contact
+            Evaluation
           </button>
         </li>
       </ul>
