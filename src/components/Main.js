@@ -5,6 +5,7 @@ import pic02 from '../images/pic02.jpg'
 import pic03 from '../images/pic03.jpg'
 import Collapsible from './Collapsible'
 import Section from './Section'
+import { graphql } from 'gatsby'
 
 class Main extends React.Component {
 
@@ -15,7 +16,7 @@ class Main extends React.Component {
         onClick={() => {
           this.props.onCloseArticle()
         }}
-      ></div>
+      />
     )
 
     return (
@@ -24,6 +25,7 @@ class Main extends React.Component {
         id="main"
         style={this.props.timeout ? { display: 'flex' } : { display: 'none' }}
       >
+        <Article article={this.props.article} articleTimeout={this.props.articleTimeout} id={}
         <article
           id="intro"
           className={`${this.props.article === 'intro' ? 'active' : ''} ${
@@ -166,3 +168,43 @@ Main.propTypes = {
 }
 
 export default Main
+
+const Article = (props) => (
+  <article
+    id=props.id
+    className={`${props.article === 'intro' ? 'active' : ''} ${
+      props.articleTimeout ? 'timeout' : ''
+    }`}
+    style={{ display: 'none' }}
+  >
+    <h2 className="major">Intro</h2>
+    <span className="image main">
+            <img src={pic01} alt="" />
+          </span>
+    <Section/>
+    {close}
+  </article>
+)
+
+Article.propTypes = {
+    article: PropTypes.string.isRequired,
+    articleTimeout: PropTypes.bool.isRequired,
+    id: PropTypes.any.isRequired
+}
+
+export const pageQuery = graphql`
+  query {
+    allMarkdownRemark {
+      edges {
+        node {
+          id
+          html
+          frontmatter {
+            section
+            title
+          }
+        }
+      }
+    }
+  }
+`

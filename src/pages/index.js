@@ -4,6 +4,7 @@ import Layout from '../components/layout'
 import Header from '../components/Header'
 import Main from '../components/Main'
 import Footer from '../components/Footer'
+import { graphql } from 'gatsby'
 
 class IndexPage extends React.Component {
   constructor(props) {
@@ -89,6 +90,20 @@ class IndexPage extends React.Component {
     }
   }
 
+  getSections(edges) {
+    let sections = {}
+    edges.map(edge => {
+      if (!sections.contains(edge.node.frontmatter.section)){
+        sections.append({
+          section: edge.node.frontmatter.section,
+          nodes: [edge.node]
+        })
+      } else {
+        sections.key(edge.node.frontmatter.section).value()
+      }
+    })
+  }
+
   render() {
     return (
       <Layout location={this.props.location}>
@@ -113,3 +128,16 @@ class IndexPage extends React.Component {
 }
 
 export default IndexPage
+
+export const pageQuery = graphql`
+  query {
+    allMarkdownRemark {
+    edges {
+      node {
+        html
+        frontmatter {
+          section
+          title
+    }
+  }
+`
