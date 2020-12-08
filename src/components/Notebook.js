@@ -16,5 +16,5 @@ class Notebook extends React.Component {
 }
 
 Notebook.propTypes = {
-  
+
 }
