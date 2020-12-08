@@ -9,7 +9,8 @@ import React from 'react'
  * Each notebook should be hidden under a collapsible section
  * rendered with the notebook name in readable format. Can probably use
  * header injection here.
- *
+ * NOTE: Just do the notebooks for data acquisition now. Can set up proper
+ * rendering with each section later.
  */
 class Section extends React.Component {
   constructor(props) {
@@ -24,5 +25,5 @@ class Section extends React.Component {
 }
 
 Section.propTypes = {
-  
+
 }
