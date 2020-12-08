@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import Collapsible from './Collapsible'
+import Notebook from './Notebook'
 
 /**
  * Implements structure for section of project (ex. data-cleaning)
@@ -21,9 +22,7 @@ class Section extends React.Component {
   render() {
     return (
       // this should be a mapped object
-      <Collapsible title={'Members Cleaning'}>
-        <p>Render members cleaning</p>
-      </Collapsible>
+      <Notebook/>
     )
   }
 }
