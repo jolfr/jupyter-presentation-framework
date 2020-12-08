@@ -13,6 +13,12 @@ class Notebook extends React.Component {
     super(props);
 
   }
+
+  render() {
+    return (
+      <></>
+    )
+  }
 }
 
 Notebook.propTypes = {
