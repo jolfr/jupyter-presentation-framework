@@ -89,6 +89,9 @@ class IndexPage extends React.Component {
       }
     }
   }
+  /*
+  START HERE
+   */
 
   getSections(edges) {
     let sections = {}
