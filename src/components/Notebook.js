@@ -19,7 +19,21 @@ class Notebook extends React.Component {
   render() {
     // const { markdownRemark } = this.props.data // data.markdownRemark holds your post data
     // const { frontmatter, html } = markdownRemark
-    const html = '<p>This is the notebook display</p>'
+    const html = '<p>\n' +
+      '            Adipiscing magna sed dolor elit. Praesent eleifend dignissim arcu,\n' +
+      '            at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent\n' +
+      '            urna nisi, fringila lorem et vehicula lacinia quam. Integer\n' +
+      '            sollicitudin mauris nec lorem luctus ultrices.\n' +
+      '          </p>\n' +
+      '          <p>\n' +
+      '            Nullam et orci eu lorem consequat tincidunt vivamus et sagittis\n' +
+      '            libero. Mauris aliquet magna magna sed nunc rhoncus pharetra.\n' +
+      '            Pellentesque condimentum sem. In efficitur ligula tate urna.\n' +
+      '            Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor.\n' +
+      '            Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis\n' +
+      '            libero. Mauris aliquet magna magna sed nunc rhoncus amet feugiat\n' +
+      '            tempus.\n' +
+      '          </p>'
     const frontmatter = {
       title: 'title',
       date: 'date'
