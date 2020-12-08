@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import Collapsible from './Collapsible'
 import Notebook from './Notebook'
 
 /**
