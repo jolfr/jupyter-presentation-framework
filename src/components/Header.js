@@ -20,60 +20,20 @@ const Header = props => {
       </div>
       <nav>
         <ul>
-          <li>
-            <button
-              onClick={() => {
-                props.onOpenArticle('intro')
-              }}
-            >
-              Data Acquisition
-            </button>
-          </li>
-          <li>
-            <button
-              onClick={() => {
-                props.onOpenArticle('intro')
-              }}
-            >
-              Data Cleaning
-            </button>
-          </li>
-          <li>
-            <button
-              onClick={() => {
-                props.onOpenArticle('intro')
-              }}
-            >
-              Exploratory Data Analysis
-            </button>
-          </li>
-          <li>
-            <button
-              onClick={() => {
-                props.onOpenArticle('work')
-              }}
-            >
-              Feature Engineering
-            </button>
-          </li>
-          <li>
-            <button
-              onClick={() => {
-                props.onOpenArticle('about')
-              }}
-            >
-              Modeling
-            </button>
-          </li>
-          <li>
-            <button
-              onClick={() => {
-                props.onOpenArticle('contact')
-              }}
-            >
-              Evaluation
-            </button>
-          </li>
+          {Object.keys(props.navList).map(function(key,index) {
+            return(
+              <li>
+                <button
+                  onClick={() => {
+                    console.log(props.navList[key].section)
+                    props.onOpenArticle('about')
+                  }}
+                >
+                  {props.navList[key].section}
+                </button>
+              </li>
+            )
+          })}
         </ul>
       </nav>
     </header>
@@ -87,10 +47,6 @@ Header.propTypes = {
     PropTypes.arrayOf(PropTypes.string),
     PropTypes.string.isRequired
   ]).isRequired,
-  notebooks: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node.isRequired
-  ]).isRequired
 }
 
 export default Header

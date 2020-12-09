@@ -89,30 +89,40 @@ class IndexPage extends React.Component {
       }
     }
   }
-  /*
-  START HERE
-   */
 
   getSections(edges) {
-    let sections = {}
+    let sections = []
     edges.map(edge => {
-      if (!sections.contains(edge.node.frontmatter.section)){
-        sections.append({
-          section: edge.node.frontmatter.section,
-          nodes: [edge.node]
-        })
+      const section = edge.node.frontmatter.section
+      const title = edge.node.frontmatter.title
+      const notebook = {
+        title: title,
+        html: edge.node.html
+      }
+      if (!sections.hasOwnProperty(section)) {
+        const struct = {
+          section: section,
+          notebooks: [
+            {
+              notebook,
+            }
+          ]
+        }
+        sections[section] = struct;
       } else {
-        sections.key(edge.node.frontmatter.section).value()
+        sections[section].notebooks = sections[section].notebooks.concat([{notebook: notebook}])
       }
     })
+    return sections;
   }
 
   render() {
+    const sections = this.getSections(this.props.data && this.props.data.allMarkdownRemark.edges)
     return (
       <Layout location={this.props.location}>
         <div className={`body ${this.state.loading} ${this.state.isArticleVisible ? 'is-article-visible' : ''}`}>
           <div id="wrapper">
-            <Header onOpenArticle={this.handleOpenArticle} timeout={this.state.timeout} />
+            <Header onOpenArticle={this.handleOpenArticle} timeout={this.state.timeout} navList={sections}/>
             <Main
               isArticleVisible={this.state.isArticleVisible}
               timeout={this.state.timeout}
@@ -120,6 +130,7 @@ class IndexPage extends React.Component {
               article={this.state.article}
               onCloseArticle={this.handleCloseArticle}
               setWrapperRef={this.setWrapperRef}
+              sections={sections}
             />
             <Footer timeout={this.state.timeout} />
           </div>
@@ -135,12 +146,15 @@ export default IndexPage
 export const pageQuery = graphql`
   query {
     allMarkdownRemark {
-    edges {
-      node {
-        html
-        frontmatter {
-          section
-          title
+      edges {
+        node {
+          html
+          frontmatter {
+            section
+            title
+          }
+        }
+      }
     }
   }
 `
