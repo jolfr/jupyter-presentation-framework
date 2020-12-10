@@ -26,7 +26,7 @@ const Header = props => {
                 <button
                   onClick={() => {
                     console.log(props.navList[key].section)
-                    props.onOpenArticle('about')
+                    props.onOpenArticle(props.navList[key].section)
                   }}
                 >
                   {props.navList[key].section}
