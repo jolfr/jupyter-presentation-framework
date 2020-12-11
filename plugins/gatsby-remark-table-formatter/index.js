@@ -5,7 +5,7 @@ module.exports = ({ markdownAST }, options) => {
   const {useDefaultStyles = true, className = ""} = options;
   visit(markdownAST, "code", (node) => {
     let code = toString(node)
-    const syntax = /\+-.*-+/ig
+    const syntax = /\+-.*-\+/ig
     const matches = code.match(syntax);
 
 
@@ -30,7 +30,7 @@ module.exports = ({ markdownAST }, options) => {
         code = code.replace(match, putTextInSpan(match))
       })
 
-      code = '<p>' + code + '</p>'
+      code = '<pre><p>' + code + '</p></pre>'
       node.type = "html"
       node.children = undefined
       node.value = code
