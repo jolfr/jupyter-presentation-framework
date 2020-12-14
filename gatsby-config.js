@@ -1,16 +1,22 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Starter - Dimension V2',
-    author: 'Hunter Chang',
-    description: 'A Gatsby.js V2 Starter based on Dimension by HTML5 UP',
+    title: 'Jupyter Presentation Framework',
+    author: 'jolfr',
+    description: 'A Jupyter notebook website built on gatsby.js. Thanks to Hunter Chang and HTML5 UP for the original design',
+    keywords: [
+      'jupyter',
+      'gatsby.js',
+      'data science',
+      'data presentation'
+    ]
   },
   plugins: [
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'gatsby-starter-default',
-        short_name: 'starter',
+        name: 'jupyter-presentation-framework',
+        short_name: 'jpy-present',
         start_url: '/',
         background_color: '#663399',
         theme_color: '#663399',

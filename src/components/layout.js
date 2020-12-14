@@ -32,6 +32,9 @@ const Layout = ({ children, location }) => {
           site {
             siteMetadata {
               title
+              description
+              author
+              keywords
             }
           }
         }
@@ -40,10 +43,9 @@ const Layout = ({ children, location }) => {
         <>
           <Helmet
             title={data.site.siteMetadata.title}
-            meta={[
-              { name: 'description', content: 'Sample' },
-              { name: 'keywords', content: 'sample, something' },
-            ]}
+            description={data.site.siteMetadata.description}
+            author={data.site.siteMetadata.author}
+            keywords={data.site.siteMetadata.keywords}
           >
             <html lang="en" />
           </Helmet>
