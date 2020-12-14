@@ -9,7 +9,7 @@ module.exports = ({ markdownAST }, options) => {
     const syntax = /root\s*\|-/ig // matches schema format
     const matches = searchGrid.match(syntax);
 
-    if (matches !== null) {
+    if (false) {
 
       var char = '\n';
       var i = 0;
