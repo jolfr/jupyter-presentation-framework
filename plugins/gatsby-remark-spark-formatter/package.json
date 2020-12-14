@@ -1,0 +1,19 @@
+{
+  "name": "gatsby-remark-spark-formatter",
+  "version": "1.0.0",
+  "description": "Converts outputs of pyspark notebooks to html elements",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "spark",
+    "pyspark",
+    "html",
+    "jupyter",
+    "gatsby",
+    "gatsby-remark-plugins"
+  ],
+  "author": "jolfr",
+  "license": "MIT"
+}
