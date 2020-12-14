@@ -14,7 +14,7 @@ module.exports = ({ markdownAST }, options) => {
         var newRow = ''
         var openBracket = brackets[0];
         var closeBracket = brackets[1];
-        const syntax = /\|\s*\+*(\w)*\.*/ig
+        const syntax = /\|((?!\|).)*/ig
         const cols = row.match(syntax);
         cols.map(col => {
           col = col.replace(/\|/,"").replace(/\s*/,"")
