@@ -12,7 +12,7 @@ const Article = props => {
       }`}
       style={{ display: 'none' }}
     >
-      <h2 className="major">Intro</h2>
+      <h1 className="major">{props.section.section}</h1>
       <span className="image main">
             <img src={pic01} alt="" />
           </span>
