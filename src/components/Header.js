@@ -1,13 +1,12 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { graphql, StaticQuery, useStaticQuery } from 'gatsby'
 
 const Header = props => {
 
   return(
     <header id="header" style={props.timeout ? { display: 'none' } : {}}>
       <div className="logo">
-        <span className="icon fa-diamond"></span>
+        <span className="icon fa-diamond"/>
       </div>
       <div className="content">
         <div className="inner">
@@ -20,7 +19,7 @@ const Header = props => {
       </div>
       <nav>
         <ul>
-          {Object.keys(props.navList).map(function(key,index) {
+          {Object.keys(props.navList).map(function(key) {
             return(
               <li>
                 <button

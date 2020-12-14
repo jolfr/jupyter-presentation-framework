@@ -2,7 +2,6 @@ import React from 'react'
 import pic01 from '../images/pic01.jpg'
 import PropTypes from 'prop-types'
 import Collapsible from './Collapsible'
-import * as NotebookTemplate from './../templates/ipynb'
 
 const Article = props => {
   return(
