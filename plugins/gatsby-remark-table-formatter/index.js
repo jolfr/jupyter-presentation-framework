@@ -43,7 +43,8 @@ module.exports = ({ markdownAST }, options) => {
           line = parseRow(line,['\t<th><div>','</div></th>\n'])
           line = '<tr>\n' + line + '</tr>\n'
           newHeader = newHeader + line
-        } else if (lineCount===2) {line = parseRow(line,['\t<td>','</td>\n'])
+        } else if (lineCount===2) {
+          line = parseRow(line,['\t<td>','</td>\n'])
           line = '<tr>\n' + line + '</tr>\n'
           newBody = newBody + line
         } else if (lineCount===3){
