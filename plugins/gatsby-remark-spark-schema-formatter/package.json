@@ -1,0 +1,14 @@
+{
+  "name": "gatsby-remark-spark-schema-formatter",
+  "version": "1.0.0",
+  "description": "Formats output of df.printSchema() for pyspark notebooks to html.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "gatsby-remark-spark-formatter"
+  ],
+  "author": "jolfr",
+  "license": "MIT"
+}
