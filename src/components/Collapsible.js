@@ -18,7 +18,9 @@ class Collapsible extends React.Component {
     return(
       <>
         <button onClick={() => this.handleToggleSection()} style={{width: '100%'}}>
-          {this.props.title}
+          <h3>
+            {this.props.title}
+          </h3>
         </button>
         <Collapse isOpened={this.state.isOpen}>
           { this.props.children }
