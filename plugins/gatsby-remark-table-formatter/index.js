@@ -34,20 +34,20 @@ module.exports = ({ markdownAST }, options) => {
       var newBody = ''
       var newFooter = ''
 
-      while ((j = (code + char).indexOf(char, i))!==
-      -1) {
-        var line = code.substring(i, j);
-        if (line.match(/\+-.*-\+/ig)) {
-          lineCount++;
-        } else if (lineCount===1) {
-          line = parseRow(line,['\t<th><div>','</div></th>\n'])
+      while ((j = (code + char).indexOf(char, i))!== // (code+char) is a workaround to capture footer
+      -1) { // while their are still newlines
+        var line = code.substring(i, j); // substring to newline
+        if (line.match(/\+-.*-\+/ig)) { // matches +--+-+ lines that declare table lines
+          lineCount++; // increment track of matches
+        } else if (lineCount===1) { // header processing
+          line = parseRow(line,['\t<th>','</th>\n'])
           line = '<tr>\n' + line + '</tr>\n'
           newHeader = newHeader + line
-        } else if (lineCount===2) {
+        } else if (lineCount===2) { // body processing
           line = parseRow(line,['\t<td>','</td>\n'])
           line = '<tr>\n' + line + '</tr>\n'
           newBody = newBody + line
-        } else if (lineCount===3){
+        } else if (lineCount===3){ // footer processing
           newFooter = newFooter + line
         }
         i = j + 1;
