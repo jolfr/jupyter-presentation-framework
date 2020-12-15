@@ -3,6 +3,10 @@
 node_modules
 yarn-error.log
 
+
+# Notebook files
+*.md
+
 # Webstorm
 .idea
 
