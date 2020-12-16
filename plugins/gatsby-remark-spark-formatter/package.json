@@ -15,5 +15,9 @@
     "gatsby-remark-plugins"
   ],
   "author": "jolfr",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "mdast-util-to-string": "^2.0.0",
+    "unist-util-visit": "^2.0.3"
+  }
 }

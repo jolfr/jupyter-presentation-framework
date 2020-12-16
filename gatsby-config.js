@@ -48,6 +48,12 @@ module.exports = {
           {
             resolve: 'gatsby-remark-table-formatter',
             options: {}
+          },
+          {
+            resolve: 'gatsby-remark-spark-formatter',
+            options: {
+              formatNumber: true
+            }
           }
         ],
       },

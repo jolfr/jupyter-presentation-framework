@@ -93,8 +93,16 @@ class IndexPage extends React.Component {
   getSections(edges) {
     let sections = []
     edges.map(edge => {
-      const section = edge.node.frontmatter.section
-      const title = edge.node.frontmatter.title
+      let section = edge.node.frontmatter.section
+      let title = edge.node.frontmatter.title
+
+      const number = /\d+\.*\d*/ig
+      const underscore = /_+/ig
+      const dash = /-+/ig
+      section = section
+        .replace(number, '')
+        .replace(underscore, ' ')
+        .replace(dash, '')
       const notebook = {
         title: title,
         html: edge.node.html
