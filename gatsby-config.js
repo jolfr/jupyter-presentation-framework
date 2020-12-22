@@ -50,6 +50,10 @@ module.exports = {
             options: {}
           },
           {
+            resolve: 'gatsby-remark-spark-schema-formatter',
+            options: {}
+          },
+          {
             resolve: 'gatsby-remark-spark-formatter',
             options: {
               formatNumber: true
