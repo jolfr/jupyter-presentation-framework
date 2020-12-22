@@ -13,9 +13,10 @@ const Article = props => {
       style={{ display: 'none' }}
     >
       <h1 className="major">{props.section.section}</h1>
-      <span className="image main">
-            <img src={pic01} alt="" />
-          </span>
+      <div
+        style={{paddingTop: 20}}
+        dangerouslySetInnerHTML={{ __html: props.section.header }}
+      />
       <div>
         {props.section.notebooks.map(function({notebook},index) {
           return(
