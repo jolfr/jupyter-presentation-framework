@@ -21,7 +21,6 @@ module.exports = ({ markdownAST }, options) => {
       -1) { // while their are still newlines
         var line = code.substring(i, j); // substring to newline
         if (line.match(/root/ig)) { // matches root of schema
-          console.log('root match')
         } else {
           line = line.replace(/\s*/, "") // strip out whitespace
           line = line.replace(/\|-+/,"") // strip out dashes
