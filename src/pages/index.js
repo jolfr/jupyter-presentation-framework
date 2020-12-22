@@ -108,17 +108,37 @@ class IndexPage extends React.Component {
         html: edge.node.html
       }
       if (!sections.hasOwnProperty(section)) {
-        const struct = {
-          section: section,
-          notebooks: [
-            {
-              notebook,
-            }
-          ]
+        var header = ''
+        var struct = ''
+        if (notebook.title === 'readme') {
+          header = notebook.html
+          struct = {
+            section: section,
+            header: header,
+            notebooks: []
+          }
+        } else {
+          struct = {
+            section: section,
+            header: '',
+            notebooks: [
+              {
+                notebook,
+              }
+            ]
+          }
         }
         sections[section] = struct;
       } else {
-        sections[section].notebooks = sections[section].notebooks.concat([{notebook: notebook}])
+        if (notebook.title === 'readme') {
+          sections[section].header = notebook.html
+        } else {
+          if (sections[section].notebooks === []) {
+            sections[section].notebooks = [{notebook: notebook}]
+          } else {
+            sections[section].notebooks = sections[section].notebooks.concat([{notebook: notebook}])
+          }
+        }
       }
     })
     return sections;
