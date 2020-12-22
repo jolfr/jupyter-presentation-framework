@@ -18,7 +18,6 @@ const Article = props => {
           </span>
       <div>
         {props.section.notebooks.map(function({notebook},index) {
-          console.log(notebook.html)
           return(
             <Collapsible title={notebook.title}>
               <div
