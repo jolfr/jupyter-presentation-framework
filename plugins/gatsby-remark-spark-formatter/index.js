@@ -16,6 +16,8 @@ module.exports = ({ markdownAST }, options) => {
       var numString = ''
       if (decimal !== '') {
         numString = '.' + decimal
+      } else {
+        numString = ' records'
       }
       if (digits.length > 3) {
         var end = digits.length
@@ -33,7 +35,7 @@ module.exports = ({ markdownAST }, options) => {
         numString = integer + numString
       }
 
-      code = '<pre><code><h3>'+ numString + '</h3></code></pre>'
+      code = '<pre><h3 style="margin-left: 20px">'+ numString + '</h3></pre>'
       node.type = "html"
       node.children = undefined
       node.value = code
