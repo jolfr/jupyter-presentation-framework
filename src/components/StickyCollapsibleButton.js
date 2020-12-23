@@ -4,17 +4,20 @@ export default function StickyCollapsibleButton({isActive, handleClick, label}) 
   if (isActive) {
     return(
       <button
-        onClick={() => handleClick()}
         style={{
           width: '100%',
-          backgroundColor: 'white',
-          color: 'black'
+          backgroundColor: '#1b1f22',
+          alignItems: 'space-between'
         }}
       >
-        <div style={{
-          color: 'black'
-        }}>
+        <div>
+          <button
+            className={'button button-icon'}
+          >PREV</button>
           {label}
+          <button
+            className={'button button-icon'}
+          >NEXT</button>
         </div>
       </button>
       )
