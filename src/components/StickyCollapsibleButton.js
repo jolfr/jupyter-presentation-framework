@@ -4,14 +4,14 @@ export default function StickyCollapsibleButton({isActive, handleClick, label}) 
   if (isActive) {
     return(
       <button
+        className={'sticky-header'}
         style={{
           width: '100%',
           backgroundColor: '#1b1f22',
         }}
       >
-        <div>
           <button
-            className={'button no-border icon fa-fast-backward'}
+            className={'button icon fa-fast-backward'}
           />
           <button
             className={'button icon fa-step-backward'}
@@ -23,7 +23,6 @@ export default function StickyCollapsibleButton({isActive, handleClick, label}) 
           <button
             className={'button icon fa-fast-forward'}
           />
-        </div>
       </button>
       )
 
