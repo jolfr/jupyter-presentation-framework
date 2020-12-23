@@ -11,14 +11,17 @@ export default function StickyCollapsibleButton({isActive, handleClick, label}) 
       >
         <div>
           <button
-            className={'button icon fa-rocket'}
+            className={'button no-border icon fa-fast-backward'}
+          />
+          <button
+            className={'button icon fa-step-backward'}
           />
           {label}
           <button
-            className={'button icon fa-play'}
+            className={'button icon fa-step-forward'}
           />
           <button
-            className={'button icon fa-forward'}
+            className={'button icon fa-fast-forward'}
           />
         </div>
       </button>
