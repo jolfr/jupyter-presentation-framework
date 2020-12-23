@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
-import React, { Component, useRef } from 'react'
-import Sticky from './Sticky'
+import React, { Component } from 'react'
+import StickyCollapsibleButton from './StickyCollapsibleButton'
 
 class StickyWrapper extends Component {
   constructor(props) {
@@ -33,9 +33,13 @@ class StickyWrapper extends Component {
             className={`sticky-wrapper${(this.state.isSticky && this.props.isActive) ? ' sticky' : ''}`}
             ref={this.ref}
           >
-            <Sticky className={`sticky-inner${(this.state.isSticky && this.props.isActive) ? ' sticky' : ''}`}>
-              {this.props.Sticky}
-            </Sticky>
+            <div className={`sticky-inner${(this.state.isSticky && this.props.isActive) ? ' sticky' : ''}`}>
+              <StickyCollapsibleButton
+                isActive={(this.state.isSticky && this.props.isActive)}
+                handleClick={this.props.handleToggleSection}
+                label={this.props.label}
+              />
+            </div>
           </div>
           {
             this.props.children
@@ -49,6 +53,7 @@ class StickyWrapper extends Component {
 export default StickyWrapper
 
 StickyWrapper.propTypes = {
-  Sticky: PropTypes.instanceOf(Component).isRequired,
-  isActive: PropTypes.bool.isRequired
+  isActive: PropTypes.bool.isRequired,
+  stickyContainerActive: PropTypes.func.isRequired,
+  stickyContainerInactive: PropTypes.func.isRequired
 }

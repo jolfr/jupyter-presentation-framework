@@ -19,11 +19,10 @@ class Collapsible extends React.Component {
     return(
       <>
         <StickyWrapper
-          Sticky={
-            <button onClick={() => this.handleToggleSection()} style={{width: '100%'}}>
-              {this.props.title}
-            </button>
-        } isActive={this.state.isOpen}>
+          isActive={this.state.isOpen}
+          handleToggleSection={() => this.handleToggleSection()}
+          label={this.props.title}
+        >
           <Collapse isOpened={this.state.isOpen}>
             { this.props.children }
           </Collapse>
