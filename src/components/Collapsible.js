@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import {Collapse} from 'react-collapse';
+import StickyWrapper from './StickyWrapper'
 
 class Collapsible extends React.Component {
   constructor(props) {
@@ -17,12 +18,16 @@ class Collapsible extends React.Component {
   render() {
     return(
       <>
-        <button onClick={() => this.handleToggleSection()} style={{width: '100%'}}>
-          {this.props.title}
-        </button>
-        <Collapse isOpened={this.state.isOpen}>
-          { this.props.children }
-        </Collapse>
+        <StickyWrapper
+          Sticky={
+            <button onClick={() => this.handleToggleSection()} style={{width: '100%'}}>
+              {this.props.title}
+            </button>
+        } isActive={this.state.isOpen}>
+          <Collapse isOpened={this.state.isOpen}>
+            { this.props.children }
+          </Collapse>
+        </StickyWrapper>
       </>
     )
   }
