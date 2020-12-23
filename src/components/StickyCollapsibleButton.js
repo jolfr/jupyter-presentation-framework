@@ -7,17 +7,19 @@ export default function StickyCollapsibleButton({isActive, handleClick, label}) 
         style={{
           width: '100%',
           backgroundColor: '#1b1f22',
-          alignItems: 'space-between'
         }}
       >
         <div>
           <button
-            className={'button button-icon'}
-          >PREV</button>
+            className={'button icon fa-rocket'}
+          />
           {label}
           <button
-            className={'button button-icon'}
-          >NEXT</button>
+            className={'button icon fa-play'}
+          />
+          <button
+            className={'button icon fa-forward'}
+          />
         </div>
       </button>
       )
