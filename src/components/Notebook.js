@@ -11,7 +11,7 @@ import * as NotebookTemplate from './../templates/ipynb'
  * notebooks
  */
 
-const Notebook = (props) => {
+const Notebook = props => {
   return null
   //
   // let edges = [0,1,2]
@@ -33,7 +33,4 @@ const Notebook = (props) => {
 
 export default Notebook
 
-Notebook.propTypes = {
-
-}
-
+Notebook.propTypes = {}

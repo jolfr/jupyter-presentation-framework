@@ -5,7 +5,7 @@ import Collapsible from './Collapsible'
 import StickyWrapper from './StickyWrapper'
 
 const Article = props => {
-  return(
+  return (
     <article
       id={props.section.section}
       className={`${props.article === props.section.section ? 'active' : ''} ${
@@ -15,15 +15,15 @@ const Article = props => {
     >
       <h1 className="major">{props.section.section}</h1>
       <div
-        style={{paddingTop: 20}}
+        style={{ paddingTop: 20 }}
         dangerouslySetInnerHTML={{ __html: props.section.header }}
       />
       <div>
-        {props.section.notebooks.map(function({notebook},index) {
-          return(
+        {props.section.notebooks.map(function({ notebook }, index) {
+          return (
             <Collapsible title={notebook.title}>
               <div
-                style={{paddingTop: 20}}
+                style={{ paddingTop: 20 }}
                 dangerouslySetInnerHTML={{ __html: notebook.html }}
               />
             </Collapsible>

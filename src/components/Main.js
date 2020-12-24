@@ -9,8 +9,8 @@ const Main = props => {
       id="main"
       style={props.timeout ? { display: 'flex' } : { display: 'none' }}
     >
-      {Object.keys(props.navList).map(function(key,index) {
-        return(
+      {Object.keys(props.navList).map(function(key, index) {
+        return (
           <Article
             article={props.article}
             articleTimeout={props.articleTimeout}
@@ -32,7 +32,7 @@ Main.propTypes = {
   setWrapperRef: PropTypes.func.isRequired,
   navList: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.object),
-    PropTypes.object.isRequired
+    PropTypes.object.isRequired,
   ]).isRequired,
 }
 
