@@ -11,19 +11,23 @@ export default function StickyCollapsibleButton({isActive, handleClick, label}) 
           padding: 0
         }}
       >
+        <div>
           <button
             className={'button icon fa-fast-backward'}
           />
           <button
             className={'button icon fa-step-backward'}
           />
-          {label}
+        </div>
+        {label}
+        <div>
           <button
             className={'button icon fa-step-forward'}
           />
           <button
             className={'button icon fa-fast-forward'}
           />
+        </div>
       </button>
       )
 
