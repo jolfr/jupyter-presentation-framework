@@ -24,7 +24,6 @@ const Header = props => {
               <li>
                 <button
                   onClick={() => {
-                    console.log(props.navList[key].section)
                     props.onOpenArticle(props.navList[key].section)
                   }}
                 >
