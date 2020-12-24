@@ -110,16 +110,19 @@ class IndexPage extends React.Component {
           header = notebook.html
           struct = {
             section: section,
+            secid: notebook.secid,
             header: header,
             notebooks: [],
           }
         } else {
           struct = {
             section: section,
-            header: '',
+            secid: notebook.secid,
+            header: header,
             notebooks: [
               {
-                notebook,
+                nbid: notebook.nbid,
+                notebook: notebook
               },
             ],
           }
@@ -130,10 +133,17 @@ class IndexPage extends React.Component {
           sections[section].header = notebook.html
         } else {
           if (sections[section].notebooks === []) {
-            sections[section].notebooks = [{ notebook: notebook }]
+            sections[section].notebooks =
+              [{
+                nbid: notebook.nbid,
+                notebook: notebook
+              }]
           } else {
             sections[section].notebooks = sections[section].notebooks.concat([
-              { notebook: notebook },
+              {
+                nbid: notebook.nbid,
+                notebook: notebook
+              },
             ])
           }
         }
@@ -188,6 +198,8 @@ export const pageQuery = graphql`
           frontmatter {
             section
             title
+            secid
+            nbid
           }
         }
       }
