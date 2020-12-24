@@ -8,6 +8,7 @@ export default function StickyCollapsibleButton({isActive, handleClick, label}) 
         style={{
           width: '100%',
           backgroundColor: '#1b1f22',
+          padding: 0
         }}
       >
           <button
