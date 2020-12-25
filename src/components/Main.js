@@ -16,6 +16,10 @@ const Main = props => {
             articleTimeout={props.articleTimeout}
             section={props.navList[key]}
             onCloseArticle={props.onCloseArticle}
+            isNotebookVisible={props.isNotebookVisible}
+            notebook={props.notebook}
+            onOpenNotebook={props.onOpenNotebook}
+            onCloseNotebook={props.onCloseNotebook}
           />
         )
       })}
@@ -28,6 +32,10 @@ Main.propTypes = {
   article: PropTypes.string,
   articleTimeout: PropTypes.bool,
   onCloseArticle: PropTypes.func,
+  isNotebookVisible: PropTypes.bool,
+  notebook: PropTypes.string,
+  onOpenNotebook: PropTypes.func,
+  onCloseNotebook: PropTypes.func,
   timeout: PropTypes.bool,
   setWrapperRef: PropTypes.func.isRequired,
   navList: PropTypes.oneOfType([

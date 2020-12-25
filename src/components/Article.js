@@ -21,7 +21,13 @@ const Article = props => {
       <div>
         {props.section.notebooks.map(function({ notebook }, index) {
           return (
-            <Collapsible title={notebook.title}>
+            <Collapsible
+              title={notebook.title}
+              isNotebookVisible={props.isNotebookVisible}
+              notebook={props.notebook}
+              onOpenNotebook={props.onOpenNotebook}
+              onCloseNotebook={props.onCloseNotebook}
+            >
               <div
                 style={{ paddingTop: 20 }}
                 dangerouslySetInnerHTML={{ __html: notebook.html }}
@@ -46,4 +52,8 @@ Article.propTypes = {
   article: PropTypes.string.isRequired,
   articleTimeout: PropTypes.bool.isRequired,
   onCloseArticle: PropTypes.func.isRequired,
+  isNotebookVisible: PropTypes.bool.isRequired,
+  notebook: PropTypes.string.isRequired,
+  onOpenNotebook: PropTypes.func.isRequired,
+  onCloseNotebook: PropTypes.func.isRequired,
 }

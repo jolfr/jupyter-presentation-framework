@@ -14,10 +14,14 @@ class IndexPage extends React.Component {
       timeout: false,
       articleTimeout: false,
       article: '',
+      isNotebookVisible: false,
+      notebook: '',
       loading: 'is-loading',
     }
     this.handleOpenArticle = this.handleOpenArticle.bind(this)
     this.handleCloseArticle = this.handleCloseArticle.bind(this)
+    this.handleOpenNotebook = this.handleOpenNotebook.bind(this)
+    this.handleCloseNotebook = this.handleCloseNotebook.bind(this)
     this.setWrapperRef = this.setWrapperRef.bind(this)
     this.handleClickOutside = this.handleClickOutside.bind(this)
   }
@@ -59,6 +63,13 @@ class IndexPage extends React.Component {
     }, 350)
   }
 
+  handleOpenNotebook(notebook) {
+    this.setState({
+      isNotebookVisible: !this.state.isNotebookVisible,
+      notebook,
+    })
+  }
+
   handleCloseArticle() {
     this.setState({
       articleTimeout: !this.state.articleTimeout,
@@ -76,6 +87,13 @@ class IndexPage extends React.Component {
         article: '',
       })
     }, 350)
+  }
+
+  handleCloseNotebook() {
+    this.setState({
+      isNotebookVisible: !this.state.isNotebookVisible,
+      notebook: '',
+    })
   }
 
   handleClickOutside(event) {
@@ -175,6 +193,10 @@ class IndexPage extends React.Component {
               articleTimeout={this.state.articleTimeout}
               article={this.state.article}
               onCloseArticle={this.handleCloseArticle}
+              isNotebookVisible={this.state.isNotebookVisible}
+              notebook={this.state.notebook}
+              onOpenNotebook={this.handleOpenNotebook}
+              onCloseNotebook={this.handleCloseNotebook}
               setWrapperRef={this.setWrapperRef}
               navList={sections}
             />

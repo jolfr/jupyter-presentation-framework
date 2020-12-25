@@ -19,11 +19,15 @@ class Collapsible extends React.Component {
     return (
       <>
         <StickyWrapper
-          isActive={this.state.isOpen}
-          handleToggleSection={() => this.handleToggleSection()}
+          isActive={this.props.isNotebookVisible}
+          handleToggleNotebook={this.props.isNotebookVisible ?
+            () => this.props.onCloseNotebook() :
+            () => this.props.onOpenNotebook(this.props.title)
+          }
           label={this.props.title}
+          handleCloseNotebook={this.props.handleCloseNotebook}
         >
-          <Collapse isOpened={this.state.isOpen}>
+          <Collapse isOpened={this.props.isNotebookVisible}>
             {this.props.children}
           </Collapse>
         </StickyWrapper>
@@ -38,6 +42,10 @@ Collapsible.propTypes = {
     PropTypes.element.isRequired,
   ]),
   title: PropTypes.string.isRequired,
+  isNotebookVisible: PropTypes.bool.isRequired,
+  notebook: PropTypes.string.isRequired,
+  onOpenNotebook: PropTypes.func.isRequired,
+  onCloseNotebook: PropTypes.func.isRequired
 }
 
 export default Collapsible

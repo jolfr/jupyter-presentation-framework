@@ -20,9 +20,13 @@ class StickyWrapper extends Component {
   }
 
   handleScroll = () => {
+    const prevSticky = this.state.isSticky
     this.setState({
       isSticky: this.ref.current.getBoundingClientRect().top <= 40,
     })
+    if (this.state.isSticky !== prevSticky) {
+      this.props.handleToggleNotebook()
+    }
   }
 
   render() {
@@ -42,7 +46,7 @@ class StickyWrapper extends Component {
             >
               <StickyCollapsibleButton
                 isActive={this.state.isSticky && this.props.isActive}
-                handleClick={this.props.handleToggleSection}
+                handleClick={this.props.handleToggleNotebook}
                 label={this.props.label}
               />
             </div>
@@ -58,6 +62,5 @@ export default StickyWrapper
 
 StickyWrapper.propTypes = {
   isActive: PropTypes.bool.isRequired,
-  stickyContainerActive: PropTypes.func.isRequired,
-  stickyContainerInactive: PropTypes.func.isRequired,
+  handleToggleNotebook: PropTypes.func.isRequired,
 }
